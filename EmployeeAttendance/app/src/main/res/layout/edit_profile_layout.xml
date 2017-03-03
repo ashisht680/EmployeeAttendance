@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/splash"
+    android:orientation="vertical">
+
+    <include layout="@layout/common_toolbar_layout" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:background="@drawable/button_border_black">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/black"
+                    android:padding="5dp">
+
+                    <ImageView
+                        android:id="@+id/imgProfile"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@mipmap/ic_launcher" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/txtProfile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/imgProfile"
+                        android:layout_centerInParent="true"
+                        android:text="PROFILE"
+                        android:textColor="@android:color/white"
+                        android:textSize="10sp" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:id="@+id/imgProfilePic"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:src="@mipmap/ic_launcher"  />
+
+                <ImageView
+                    android:id="@+id/imgProfilePicNotFound"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:src="@mipmap/ic_launcher"
+                    android:visibility="visible" />
+
+                <RelativeLayout
+                    android:id="@+id/rlUpadteImg"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:background="@color/black_transparent_color"
+                    android:gravity="center_horizontal">
+
+                    <ImageView
+                        android:id="@+id/imgUpdate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@android:drawable/ic_menu_camera" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/imgUpdate"
+                        android:gravity="center"
+                        android:text="Update image"
+                        android:textColor="@android:color/white" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:background="@android:color/white">
+
+                    <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/etStoreName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/white"
+                        android:hint="name"
+                        android:padding="5dp"
+                        android:textColor="@android:color/black"
+                        android:textSize="13sp" />
+
+                    <!--  <RelativeLayout
+                          android:id="@+id/rlEdit"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_alignParentBottom="true"
+                          android:layout_alignParentRight="true"
+                          android:padding="2dp">
+
+                          <ImageView
+                              android:id="@+id/imgEdit"
+                              android:layout_width="15dp"
+                              android:layout_height="15dp"
+                              android:src="@drawable/events" />
+
+                          <android.support.v7.widget.AppCompatTextView
+                              android:id="@+id/txtEdit"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:layout_below="@+id/imgEdit"
+                              android:layout_centerInParent="true"
+                              android:text="Edit"
+                              android:textColor="@android:color/black"
+                              android:textSize="10dp" />
+                      </RelativeLayout>-->
+
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@color/toolbar_color">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/txtOwnerHd"
+                        android:layout_width="100dp"
+                        android:layout_height="30dp"
+                        android:background="@android:color/white"
+                        android:gravity="center|left"
+                        android:paddingLeft="5dp"
+                        android:text="Emp ID"
+                        android:textColor="@color/blue_button_color"
+                        android:textSize="12dp" />
+
+                    <ImageView
+                        android:id="@+id/img0"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_toRightOf="@+id/txtOwnerHd"
+                        android:rotation="0"
+                        android:src="@drawable/shape_white_triangle" />
+
+                    <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/etOwner"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_toRightOf="@+id/img0"
+                        android:background="@color/toolbar_color"
+                        android:gravity="center|left"
+                        android:hint="emp id"
+                        android:inputType="text"
+                        android:lines="1"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@color/black_transparent_color"
+                        android:textSize="12dp" />
+
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@color/toolbar_color">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/txtEmailHd"
+                        android:layout_width="100dp"
+                        android:layout_height="30dp"
+                        android:background="@android:color/white"
+                        android:gravity="center|left"
+                        android:paddingLeft="5dp"
+                        android:text="Email"
+                        android:textColor="@color/blue_button_color"
+                        android:textSize="12dp" />
+
+                    <ImageView
+                        android:id="@+id/img1"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_toRightOf="@+id/txtEmailHd"
+                        android:rotation="0"
+                        android:src="@drawable/shape_white_triangle" />
+
+                    <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/etEmailAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_toRightOf="@+id/img1"
+                        android:background="@color/toolbar_color"
+                        android:gravity="center|left"
+                        android:hint="abcdefg@xyz.com"
+                        android:inputType="textEmailAddress"
+                        android:lines="1"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@color/black_transparent_color"
+                        android:textSize="12dp" />
+
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@color/toolbar_color">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/txtMobileHd"
+                        android:layout_width="100dp"
+                        android:layout_height="30dp"
+                        android:background="@android:color/white"
+                        android:gravity="center|left"
+                        android:paddingLeft="5dp"
+                        android:text="Mobile no."
+                        android:textColor="@color/blue_button_color"
+                        android:textSize="12dp" />
+
+                    <ImageView
+                        android:id="@+id/img2"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_toRightOf="@+id/txtMobileHd"
+                        android:rotation="0"
+                        android:src="@drawable/shape_white_triangle" />
+
+                    <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/etMobile"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_toRightOf="@+id/img2"
+                        android:background="@color/toolbar_color"
+                        android:gravity="center|left"
+                        android:hint="mobile number"
+                        android:maxLength="10"
+                        android:inputType="phone"
+                        android:lines="1"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@color/black_transparent_color"
+                        android:textSize="12dp" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@color/toolbar_color">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/txtLandLineHd"
+                        android:layout_width="100dp"
+                        android:layout_height="30dp"
+                        android:background="@android:color/white"
+                        android:gravity="center|left"
+                        android:paddingLeft="5dp"
+                        android:text="Alternative no."
+                        android:textColor="@color/blue_button_color"
+                        android:textSize="12dp" />
+
+                    <ImageView
+                        android:id="@+id/img3"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_toRightOf="@+id/txtLandLineHd"
+                        android:rotation="0"
+                        android:src="@drawable/shape_white_triangle" />
+
+                    <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/etLandLine"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="@color/toolbar_color"
+                        android:layout_toRightOf="@+id/img3"
+                        android:gravity="center|left"
+                        android:hint="Alternative number"
+                        android:maxLength="15"
+                        android:inputType="phone"
+                        android:lines="1"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@color/black_transparent_color"
+                        android:textSize="12dp"/>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@color/toolbar_color">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/txtStateHd"
+                        android:layout_width="100dp"
+                        android:layout_height="30dp"
+                        android:background="@android:color/white"
+                        android:gravity="center|left"
+                        android:paddingLeft="5dp"
+                        android:text="State"
+                        android:textColor="@color/blue_button_color"
+                        android:textSize="12dp" />
+
+                    <ImageView
+                        android:id="@+id/img4"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_toRightOf="@+id/txtStateHd"
+                        android:rotation="0"
+                        android:src="@drawable/shape_white_triangle" />
+
+                    <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/etState"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_toRightOf="@+id/img4"
+                        android:background="@color/toolbar_color"
+                        android:clickable="true"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:gravity="center|left"
+                        android:hint="state"
+                        android:lines="1"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@color/black_transparent_color"
+                        android:textSize="12dp" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@color/toolbar_color">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/txtCityHd"
+                        android:layout_width="100dp"
+                        android:layout_height="30dp"
+                        android:background="@android:color/white"
+                        android:gravity="center|left"
+                        android:paddingLeft="5dp"
+                        android:text="City"
+                        android:textColor="@color/blue_button_color"
+                        android:textSize="12dp" />
+
+                    <ImageView
+                        android:id="@+id/img5"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_toRightOf="@+id/txtCityHd"
+                        android:rotation="0"
+                        android:src="@drawable/shape_white_triangle" />
+
+                    <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/etCity"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_toRightOf="@+id/img5"
+                        android:background="@color/toolbar_color"
+                        android:clickable="true"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:gravity="center|left"
+                        android:hint="city"
+                        android:lines="1"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@color/black_transparent_color"
+                        android:textSize="12dp" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@color/toolbar_color">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/txtAddressHd"
+                        android:layout_width="100dp"
+                        android:layout_height="30dp"
+                        android:background="@android:color/white"
+                        android:gravity="center|left"
+                        android:paddingLeft="5dp"
+                        android:text="Address"
+                        android:textColor="@color/blue_button_color"
+                        android:textSize="12dp" />
+
+                    <ImageView
+                        android:id="@+id/img6"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_toRightOf="@+id/txtAddressHd"
+                        android:rotation="0"
+                        android:src="@drawable/shape_white_triangle" />
+
+                    <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/etAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_toRightOf="@+id/img6"
+                        android:background="@color/toolbar_color"
+                        android:clickable="true"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:gravity="center|left"
+                        android:hint="address"
+                        android:lines="1"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@color/black_transparent_color"
+                        android:textSize="12dp" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@color/toolbar_color">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/txtPinHd"
+                        android:layout_width="100dp"
+                        android:layout_height="30dp"
+                        android:background="@android:color/white"
+                        android:gravity="center|left"
+                        android:paddingLeft="5dp"
+                        android:text="Pincde"
+                        android:textColor="@color/blue_button_color"
+                        android:textSize="12dp" />
+
+                    <ImageView
+                        android:id="@+id/img7"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_toRightOf="@+id/txtPinHd"
+                        android:rotation="0"
+                        android:src="@drawable/shape_white_triangle" />
+
+                    <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/etPin"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_toRightOf="@+id/img7"
+                        android:background="@color/toolbar_color"
+                        android:clickable="true"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:gravity="center|left"
+                        android:hint="pincode"
+                        android:inputType="number"
+                        android:lines="1"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@color/black_transparent_color"
+                        android:textSize="12dp" />
+                </RelativeLayout>
+            </LinearLayout>
+
+
+
+            <!-- <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_marginTop="5dp">
+
+                 <RelativeLayout
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content">
+
+                     <android.support.v7.widget.AppCompatTextView
+                         android:id="@+id/txtAddCategory"
+                         android:layout_width="100dp"
+                         android:layout_height="30dp"
+                         android:background="@android:color/white"
+                         android:gravity="center|left"
+                         android:paddingLeft="5dp"
+                         android:text="Categories"
+                         android:textColor="@color/blue_button_color"
+                         android:textSize="12dp" />
+
+                     <ImageView
+                         android:id="@+id/img10"
+                         android:layout_width="30dp"
+                         android:layout_height="30dp"
+                         android:layout_toRightOf="@+id/txtAddCategory"
+                         android:rotation="0"
+                         android:src="@drawable/shape_white_triangle" />
+
+                 </RelativeLayout>
+             </LinearLayout>
+             <android.support.v7.widget.RecyclerView
+                 android:id="@+id/grid_tags"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:gravity="left"
+                 android:horizontalSpacing="10dp"
+                 android:numColumns="2"
+                 android:verticalSpacing="10dp" />
+             <android.support.v7.widget.AppCompatTextView
+                 android:id="@+id/txtAddNewCategory"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:background="@android:color/white"
+                 android:gravity="center|left"
+                 android:text="Add new category"
+                 android:layout_marginTop="5dp"
+                 android:padding="5dp"
+                 android:textAllCaps="true"
+                 android:layout_gravity="center_horizontal"
+                 android:singleLine="true"
+                 android:textColor="@android:color/black"
+                 android:textColorHint="@android:color/white"
+                 android:textSize="14dp" />-->
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/txtUpdate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/white"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="UPDATE"
+                android:textColor="@android:color/black" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

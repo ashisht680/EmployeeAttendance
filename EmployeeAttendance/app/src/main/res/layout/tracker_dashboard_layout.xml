@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/splash"
+    android:orientation="vertical">
+
+    <include layout="@layout/common_toolbar_layout" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:background="@drawable/button_border_white">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/txtTrackerEdit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:padding="10dp"
+                    android:text="Edit"
+                    android:textColor="@android:color/white" />
+
+                <ImageView
+                    android:id="@+id/imgTrackerProfile"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_margin="20dp"
+                    android:src="@drawable/default_avatar" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/txtTrackerMailid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtTrackerName"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_toLeftOf="@+id/imgFav"
+                    android:layout_toRightOf="@+id/imgTrackerProfile"
+                    android:maxLines="2"
+                    android:text=""
+                    android:textColor="@android:color/white" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/txtTrackerName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="2"
+                    android:layout_marginRight="5dp"
+                    android:text=""
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_toRightOf="@+id/imgTrackerProfile"
+                    android:layout_below="@+id/txtTrackerEdit"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginRight="@dimen/activity_vertical_margin"
+                android:background="@drawable/button_border_white">
+
+                <android.support.v7.widget.AppCompatTextView
+                   android:id="@+id/txtTrackerDashboard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_border_black_fill_white"
+                    android:gravity="center_horizontal"
+                    android:padding="5dp"
+                    android:text="DASHBOARD"
+                    android:textColor="@color/toolbar_color"
+                    android:textSize="18dp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_below="@+id/txtTrackerDashboard"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:weightSum="2"
+                    android:orientation="horizontal">
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/txtTotalEmp"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Employees"
+                        android:textAllCaps="true"
+                        android:gravity="center"
+                        android:background="@color/white_transparent_color"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="5dp"/>
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/txtTotalCustomer"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="ALL Customers"
+                        android:textAllCaps="true"
+                        android:gravity="center"
+                        android:background="@color/white_transparent_color"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="5dp"/>
+                </LinearLayout>
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

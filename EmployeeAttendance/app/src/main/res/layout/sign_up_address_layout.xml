@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/splash"
+    tools:ignore="NewApi">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/sign_parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/wish_zee_logo"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="25dp"
+                    android:src="@mipmap/ic_launcher" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/lltop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sign_parent"
+                android:layout_margin="8dp"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/et_EmpId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/button_border_white"
+                    android:hint="ID"
+                    android:inputType="text"
+                    android:lines="1"
+                    android:nextFocusDown="@+id/et_name"
+                    android:padding="8dp"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="@android:color/white" />
+
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/et_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/button_border_white"
+                    android:hint="NAME"
+                    android:inputType="text"
+                    android:lines="1"
+                    android:nextFocusDown="@+id/et_email"
+                    android:padding="8dp"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="@android:color/white" />
+
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/et_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/button_border_white"
+                    android:hint="EMAIL"
+                    android:inputType="textEmailAddress"
+                    android:lines="1"
+                    android:nextFocusDown="@+id/et_MobileNum"
+                    android:padding="8dp"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="@android:color/white" />
+
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/et_MobileNum"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/button_border_white"
+                    android:hint="MOBILE NUMBER"
+                    android:inputType="number"
+                    android:lines="1"
+                    android:maxLength="10"
+                    android:nextFocusDown="@+id/et_Landline"
+                    android:padding="8dp"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="@android:color/white" />
+
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/et_Landline"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/button_border_white"
+                    android:hint="ALTERNATIVE MOBILE (optional)"
+                    android:inputType="number"
+                    android:lines="1"
+                    android:maxLength="10"
+                    android:nextFocusDown="@+id/et_Address"
+                    android:padding="8dp"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="@android:color/white" />
+
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/et_State"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/button_border_white"
+                    android:clickable="true"
+                    android:cursorVisible="false"
+                    android:drawableRight="@android:drawable/arrow_down_float"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:hint="STATE"
+                    android:inputType="phone"
+                    android:lines="1"
+                    android:nextFocusDown="@+id/et_email"
+                    android:padding="8dp"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="@android:color/white" />
+
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/et_City"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/button_border_white"
+                    android:clickable="true"
+                    android:cursorVisible="false"
+                    android:drawableRight="@android:drawable/arrow_down_float"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:hint="CITY"
+                    android:inputType="phone"
+                    android:lines="1"
+                    android:nextFocusDown="@+id/et_State"
+                    android:padding="8dp"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="@android:color/white" />
+
+
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/et_Address"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/button_border_white"
+                    android:gravity="top"
+                    android:hint="ADDRESS"
+                    android:inputType="text"
+                    android:lines="3"
+                    android:nextFocusDown="@+id/et_City"
+                    android:padding="8dp"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="@android:color/white" />
+
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/et_PinCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/button_border_white"
+                    android:hint="PINCODE"
+                    android:inputType="phone"
+                    android:maxLength="6"
+                    android:lines="1"
+                    android:nextFocusDown="@+id/et_password"
+                    android:padding="8dp"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="@android:color/white" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/et_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/button_border_white"
+                        android:hint="PASSWORD"
+                        android:imeOptions="actionNext"
+                        android:inputType="textPassword"
+                        android:lines="1"
+                        android:nextFocusDown="@+id/et_ConfirmPassword"
+                        android:padding="8dp"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@android:color/white" />
+
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/cbShowPwd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:button="@drawable/ic_visibility_white"
+                        android:gravity="center"
+                        android:padding="8dp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/et_ConfirmPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/button_border_white"
+                        android:hint="CONFIRM PASSWORD"
+                        android:imeOptions="actionDone"
+                        android:inputType="textPassword"
+                        android:lines="1"
+                        android:padding="8dp"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@android:color/white" />
+
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/cbShowConPwd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:button="@drawable/ic_visibility_white"
+                        android:gravity="center"
+                        android:padding="8dp" />
+                </RelativeLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/radioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@android:color/white" />
+
+                    <TextView
+                        android:id="@+id/txtTermCondition"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/white" />
+                </LinearLayout>
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/btn_regester"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp"
+                    android:background="@android:color/white"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="REGISTER"
+                    android:textColor="@android:color/black" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imgBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:src="@drawable/ic_arrow_back_white" />
+        </RelativeLayout>
+    </ScrollView>
+
+
+</LinearLayout>

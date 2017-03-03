@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/splash"
+    android:orientation="vertical">
+
+    <include layout="@layout/common_toolbar_layout" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="8dp">
+            <ImageView
+                android:id="@+id/imgProfilePic"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:scaleType="fitCenter"
+                android:layout_margin="10dp"
+                android:src="@drawable/default_avatar" />
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/btnSacnAddhar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Scan Aadhar card"
+                android:textAllCaps="true" />
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/etDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:minHeight="100dp"
+                android:hint="Description"
+                android:gravity="top"
+                android:padding="5dp"
+                android:textColorHint="@android:color/darker_gray"
+                android:textColor="@android:color/white"
+                android:background="@drawable/button_border_white"/>
+
+            <LinearLayout
+                android:id="@+id/llAadharDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/txtHdID"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ID : "
+                        android:textColor="@android:color/white" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/txtID"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/txtHdID"
+                        android:text=""
+                        android:textColor="@android:color/white" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/txtHdName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Name : "
+                        android:textColor="@android:color/white" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/txtName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/txtHdName"
+                        android:text=""
+                        android:textColor="@android:color/white" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/txtHdGender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Gender : "
+                        android:textColor="@android:color/white" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/txtGender"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/txtHdGender"
+                        android:text=""
+                        android:textColor="@android:color/white" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/txtHdYob"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="YOB : "
+                        android:textColor="@android:color/white" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/txtYOB"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/txtHdYob"
+                        android:text=""
+                        android:textColor="@android:color/white" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/txtHdCO"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CO : "
+                        android:textColor="@android:color/white" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/txtCO"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/txtHdCO"
+                        android:text=""
+                        android:textColor="@android:color/white" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/txtHdLM"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="LM : "
+                        android:textColor="@android:color/white" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/txtLM"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/txtHdLM"
+                        android:text=""
+                        android:textColor="@android:color/white" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/txtHdVTC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="VTC : "
+                        android:textColor="@android:color/white" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/txtVTC"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/txtHdVTC"
+                        android:text=""
+                        android:textColor="@android:color/white" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/txtHdPO"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="PO : "
+                        android:textColor="@android:color/white" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/txtPO"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/txtHdPO"
+                        android:text=""
+                        android:textColor="@android:color/white" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/txtHdDist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dist : "
+                        android:textColor="@android:color/white" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/txtDist"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/txtHdDist"
+                        android:text=""
+                        android:textColor="@android:color/white" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/txtHdState"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="State : "
+                        android:textColor="@android:color/white" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/txtState"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/txtHdState"
+                        android:text=""
+                        android:textColor="@android:color/white" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/txtHdPC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="PC : "
+                        android:textColor="@android:color/white" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/txtPC"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/txtHdPC"
+                        android:text=""
+                        android:textColor="@android:color/white" />
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/btnSubmitVisit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Submit"
+                android:layout_gravity="right"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

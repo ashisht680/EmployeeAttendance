@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/splash"
+    android:orientation="vertical">
+
+    <include layout="@layout/common_toolbar_layout" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp">
+
+                    <ImageView
+                        android:id="@+id/imgProfile"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/default_avatar" />
+
+                    <ProgressBar
+                        android:id="@+id/progress"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_centerInParent="true"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    android:visibility="visible">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/txtHdEID"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:minEms="5"
+                            android:text="EID"
+                            android:textColor="@android:color/black" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/txtEID"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@+id/txtHdEID"
+                            android:text=""
+                            android:textColor="@android:color/black" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/txtHdName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Name"
+                            android:minEms="5"
+                            android:textColor="@android:color/black" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/txtName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@+id/txtHdName"
+                            android:text=""
+                            android:textColor="@android:color/black" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/txtHdEmail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Email"
+                            android:minEms="5"
+                            android:textColor="@android:color/black" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/txtEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@+id/txtHdEmail"
+                            android:text=""
+                            android:textColor="@android:color/black" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/txtHdMobile"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Mobile"
+                            android:minEms="5"
+                            android:textColor="@android:color/black" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/txtMobile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@+id/txtHdMobile"
+                            android:text=""
+                            android:textColor="@android:color/black" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/txtHdAltMobile"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Alt. Mobile"
+                            android:minEms="5"
+                            android:textColor="@android:color/black" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/txtAltMobile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@+id/txtHdAltMobile"
+                            android:text=""
+                            android:textColor="@android:color/black" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/txtHdAddress"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Address"
+                            android:minEms="5"
+                            android:textColor="@android:color/black" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/txtAddress"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@+id/txtHdAddress"
+                            android:text=""
+                            android:textColor="@android:color/black" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/txtHdCity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="City"
+                            android:minEms="5"
+                            android:textColor="@android:color/black" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/txtCity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@+id/txtHdCity"
+                            android:text=""
+                            android:textColor="@android:color/black" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/txtHdState"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="State"
+                            android:minEms="5"
+                            android:textColor="@android:color/black" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/txtState"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@+id/txtHdState"
+                            android:text=""
+                            android:textColor="@android:color/black" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/txtHdPincode"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pincode"
+                            android:minEms="5"
+                            android:textColor="@android:color/black" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/txtPincode"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@+id/txtHdPincode"
+                            android:text=""
+                            android:textColor="@android:color/black" />
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:layout_below="@+id/txtTrackerDashboard"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/btnAttendance"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="5dp"
+                            android:layout_weight="1"
+                            android:background="@color/toolbar_color"
+                            android:gravity="center"
+                            android:text="ATTENDANCE"
+                            android:textAllCaps="true"
+                            android:textColor="@android:color/white"
+                            android:textStyle="bold" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/btnCustomer"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:background="@color/toolbar_color"
+                            android:gravity="center"
+                            android:text="Customers"
+                            android:textAllCaps="true"
+                            android:textColor="@android:color/white"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/splash"
+    android:orientation="vertical">
+
+    <include layout="@layout/common_toolbar_layout" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:background="@drawable/button_border_white">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/txtEmpEdit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:padding="10dp"
+                    android:text="Edit"
+                    android:textColor="@android:color/white" />
+
+                <ImageView
+                    android:id="@+id/imgEmpProfile"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_margin="20dp"
+                    android:src="@drawable/default_avatar" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/txtEmpName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_toRightOf="@+id/imgEmpProfile"
+                    android:maxLines="2"
+                    android:text=""
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/txtEmpId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtEmpName"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@+id/imgFav"
+                    android:layout_toRightOf="@+id/imgEmpProfile"
+                    android:maxLines="2"
+                    android:text=""
+                    android:textColor="@android:color/white" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/txtEmpMailid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtEmpId"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@+id/imgFav"
+                    android:layout_toRightOf="@+id/imgEmpProfile"
+                    android:maxLines="2"
+                    android:text=""
+                    android:textColor="@android:color/white" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginRight="@dimen/activity_vertical_margin"
+                android:background="@drawable/button_border_white">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/txtEmpDashboard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_border_black_fill_white"
+                    android:gravity="center_horizontal"
+                    android:padding="5dp"
+                    android:text="DASHBOARD"
+                    android:textColor="@color/toolbar_color"
+                    android:textSize="18dp" />
+
+
+                <LinearLayout
+                    android:id="@+id/llOne"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_below="@+id/txtEmpDashboard"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/txtAttendance"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:background="@color/white_transparent_color"
+                        android:gravity="center"
+                        android:text="Attendance"
+                        android:textAllCaps="true"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/txtVisitCustomer"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@color/white_transparent_color"
+                        android:gravity="center"
+                        android:text="Visit Customers"
+                        android:textAllCaps="true"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_below="@+id/llOne"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/txtMyAttendance"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:background="@color/white_transparent_color"
+                        android:gravity="center"
+                        android:text="My attendance"
+                        android:textAllCaps="true"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/txtMyCustomers"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@color/white_transparent_color"
+                        android:gravity="center"
+                        android:text="My Customers"
+                        android:textAllCaps="true"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

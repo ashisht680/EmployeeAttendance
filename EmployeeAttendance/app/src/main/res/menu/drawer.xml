@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/drawer_home"
+            android:checkable="false"
+            android:icon="@mipmap/ic_launcher"
+            android:title="Home"/>
+        <item
+            android:id="@+id/drawer_addCategory"
+            android:checkable="false"
+            android:icon="@mipmap/ic_launcher"
+            android:title="Add Category"/>
+        <item
+            android:id="@+id/drawer_addOffer"
+            android:checkable="false"
+            android:icon="@mipmap/ic_launcher"
+            android:title="Add Offer"/>
+        <item
+            android:id="@+id/drawer_cat_list"
+            android:checkable="false"
+            android:icon="@mipmap/ic_launcher"
+            android:title="Category List"/>
+      <!--  <item
+            android:id="@+id/drawer_looking_for"
+            android:checkable="false"
+            android:icon="@mipmap/ic_launcher"
+            android:title="Looking For(Up coming)"/>-->
+        <item
+            android:id="@+id/drawer_about"
+            android:checkable="false"
+            android:icon="@mipmap/ic_launcher"
+            android:title="About App"/>
+        <item
+            android:id="@+id/drawer_share"
+            android:checkable="false"
+            android:icon="@mipmap/ic_launcher"
+            android:title="Invite"/>
+        <item
+            android:id="@+id/drawer_rate"
+            android:checkable="false"
+            android:icon="@mipmap/ic_launcher"
+            android:title="Rate us"/>
+
+        <item
+            android:id="@+id/drawer_logout"
+            android:checkable="false"
+            android:icon="@mipmap/ic_launcher"
+            android:title="Logout"/>
+
+    </group>
+</menu>

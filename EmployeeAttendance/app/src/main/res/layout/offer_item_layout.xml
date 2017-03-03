@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rlMain"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/rlItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp">
+
+            <ProgressBar
+                android:id="@+id/progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="35dp"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/imgShopLogoOffer"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:background="@drawable/button_border_black"
+                android:padding="1dp"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/ic_launcher" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/txtShopName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="40dp"
+                android:layout_toRightOf="@+id/imgShopLogoOffer"
+                android:lines="1"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/txtSubCategoryItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtShopName"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="40dp"
+                android:layout_toRightOf="@+id/imgShopLogoOffer"
+                android:lines="1"
+                android:text=""
+                android:textSize="12sp" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/txtOfferTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtSubCategoryItem"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@+id/imgShopLogoOffer"
+                android:lines="1"
+                android:text=""
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="19sp" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/txtOfferCategoryItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtOfferTitle"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/imgShopLogoOffer"
+                android:lines="1"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="14sp" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/txtTimingOffer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtOfferCategoryItem"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/imgShopLogoOffer"
+                android:lines="1"
+                android:text=""
+                android:textSize="12sp" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/txtViewItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/viewline"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/imgShopLogoOffer"
+                android:background="@color/blue_button_color"
+                android:padding="5dp"
+                android:text=""
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/txtAvailedItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/viewline"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/txtViewItem"
+                android:background="@android:color/holo_green_dark"
+                android:padding="1dp"
+                android:text="650 Availed"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                android:visibility="gone" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/txtEditOfferItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/viewline"
+                android:layout_alignParentRight="true"
+                android:background="@color/sq_background_blue"
+                android:padding="5dp"
+                android:text="Edit Offer >"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="12sp" />
+
+
+            <View
+                android:id="@+id/viewline"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/imgShopLogoOffer"
+                android:layout_marginTop="10dp"
+                android:background="@color/wow_gray"
+                android:visibility="invisible"></View>
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/rlItem"
+            android:background="@color/background_color" />
+
+        <LinearLayout
+            android:id="@+id/llOffItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rlItem"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:weightSum="3">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/txtMRP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:paddingTop="3dp"
+                    android:text="MRP"
+                    android:textColor="@android:color/black" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/txtActualPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:paddingBottom="3dp"
+                    android:text=""
+                    android:textColor="@android:color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/txtUPTO"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:paddingTop="3dp"
+                    android:text="UPTO"
+                    android:textColor="@android:color/black" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/txtOfferPercent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:paddingBottom="3dp"
+                    android:text="fff"
+                    android:textColor="@android:color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/txtOFFER"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:paddingTop="3dp"
+                    android:text="OFFER"
+                    android:textColor="@color/offer_green_color" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/txtDiscountPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:paddingBottom="3dp"
+                    android:text="fff"
+                    android:textColor="@color/offer_green_color" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

@@ -22,7 +22,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="30dp"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@mipmap/ft_logo" />
 
             <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/txtFeedback"
@@ -36,7 +36,7 @@
                 android:id="@+id/txtTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="We would love to hear from you! Tell us what you think about the Ample Partner App..."
+                android:text="We would love to hear from you! Tell us what you think about the Field Track App..."
                 android:gravity="center"
                 android:textColor="@android:color/white"/>
             <android.support.v7.widget.AppCompatEditText

@@ -16,7 +16,7 @@
         android:gravity="center"
         android:paddingLeft="32dp"
         android:paddingRight="29dp"
-        android:text="Ample Partner"
+        android:text="@string/app_name"
         android:textColor="#ffffff"
         android:textSize="27sp" />
 
@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@mipmap/ft_logo" />
         <include layout="@layout/common_progressbar"/>
     </RelativeLayout>
 

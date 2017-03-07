@@ -393,7 +393,7 @@ public class EmployeeAttendanceFragment extends BaseFragment implements View.OnC
             } else {
                 btnCurrentLocation.setBackgroundColor(Utility.getColor(activity, R.color.offer_green_color));
                 btnCurrentLocation.setText("DONE");
-                Toast.makeText(activity, latitude + " " + longitude + "", Toast.LENGTH_LONG).show();
+                Toast.makeText(activity, latitude + "," + longitude + "", Toast.LENGTH_LONG).show();
             }
 
         } else {

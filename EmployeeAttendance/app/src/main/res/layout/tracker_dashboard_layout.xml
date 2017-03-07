@@ -84,7 +84,7 @@
                     android:padding="5dp"
                     android:text="DASHBOARD"
                     android:textColor="@color/toolbar_color"
-                    android:textSize="18dp" />
+                    android:textSize="20dp" />
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
@@ -101,25 +101,27 @@
                         android:text="Employees"
                         android:textAllCaps="true"
                         android:gravity="center"
-                        android:background="@color/white_transparent_color"
-                        android:textColor="@android:color/white"
+                        android:background="@android:color/white"
+                        android:textColor="@android:color/black"
                         android:textStyle="bold"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginRight="5dp"/>
+                        android:layout_marginRight="5dp"
+                        android:textSize="18dp"/>
 
                     <android.support.v7.widget.AppCompatTextView
                         android:id="@+id/txtTotalCustomer"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:text="ALL Customers"
+                        android:text="ALL\nCustomers"
                         android:textAllCaps="true"
                         android:gravity="center"
-                        android:background="@color/white_transparent_color"
-                        android:textColor="@android:color/white"
+                        android:background="@android:color/white"
+                        android:textColor="@android:color/black"
                         android:textStyle="bold"
                         android:layout_marginRight="10dp"
-                        android:layout_marginLeft="5dp"/>
+                        android:layout_marginLeft="5dp"
+                        android:textSize="18dp"/>
                 </LinearLayout>
             </RelativeLayout>
 

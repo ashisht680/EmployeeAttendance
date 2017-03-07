@@ -26,14 +26,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@android:color/black"
-                    android:padding="5dp">
+                    android:padding="5dp"
+                    android:visibility="invisible">
 
                     <ImageView
                         android:id="@+id/imgProfile"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_centerHorizontal="true"
-                        android:src="@mipmap/ic_launcher" />
+                        android:src="@drawable/default_avatar" />
 
                     <android.support.v7.widget.AppCompatTextView
                         android:id="@+id/txtProfile"
@@ -56,7 +57,7 @@
                     android:id="@+id/imgProfilePicNotFound"
                     android:layout_width="match_parent"
                     android:layout_height="180dp"
-                    android:src="@mipmap/ic_launcher"
+                    android:src="@drawable/default_avatar"
                     android:visibility="visible" />
 
                 <RelativeLayout
@@ -304,7 +305,7 @@
                         android:layout_toRightOf="@+id/img3"
                         android:gravity="center|left"
                         android:hint="Alternative number"
-                        android:maxLength="15"
+                        android:maxLength="10"
                         android:inputType="phone"
                         android:lines="1"
                         android:textColor="@android:color/white"
@@ -444,10 +445,6 @@
                         android:layout_height="30dp"
                         android:layout_toRightOf="@+id/img6"
                         android:background="@color/toolbar_color"
-                        android:clickable="true"
-                        android:cursorVisible="false"
-                        android:focusable="false"
-                        android:focusableInTouchMode="false"
                         android:gravity="center|left"
                         android:hint="address"
                         android:lines="1"
@@ -492,17 +489,14 @@
                         android:layout_height="30dp"
                         android:layout_toRightOf="@+id/img7"
                         android:background="@color/toolbar_color"
-                        android:clickable="true"
-                        android:cursorVisible="false"
-                        android:focusable="false"
-                        android:focusableInTouchMode="false"
                         android:gravity="center|left"
                         android:hint="pincode"
                         android:inputType="number"
                         android:lines="1"
                         android:textColor="@android:color/white"
                         android:textColorHint="@color/black_transparent_color"
-                        android:textSize="12dp" />
+                        android:textSize="12dp"
+                        android:maxLength="6"/>
                 </RelativeLayout>
             </LinearLayout>
 

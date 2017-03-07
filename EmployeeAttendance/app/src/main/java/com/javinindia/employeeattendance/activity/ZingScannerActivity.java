@@ -21,7 +21,7 @@ public class ZingScannerActivity extends AppCompatActivity {
         final Activity activity = this;
         IntentIntegrator integrator = new IntentIntegrator(activity);
         integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES);
-        integrator.setPrompt("Scan");
+        integrator.setPrompt("");
         integrator.setCameraId(0);
         integrator.setBeepEnabled(false);
         integrator.setBarcodeImageEnabled(false);

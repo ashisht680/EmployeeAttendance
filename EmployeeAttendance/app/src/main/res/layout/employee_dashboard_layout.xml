@@ -96,7 +96,7 @@
                     android:padding="5dp"
                     android:text="DASHBOARD"
                     android:textColor="@color/toolbar_color"
-                    android:textSize="18dp" />
+                    android:textSize="20dp" />
 
 
                 <LinearLayout
@@ -116,12 +116,13 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="5dp"
                         android:layout_weight="1"
-                        android:background="@color/white_transparent_color"
+                        android:background="@android:color/white"
                         android:gravity="center"
                         android:text="Attendance"
                         android:textAllCaps="true"
-                        android:textColor="@android:color/white"
-                        android:textStyle="bold" />
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold"
+                        android:textSize="18dp"/>
 
                     <android.support.v7.widget.AppCompatTextView
                         android:id="@+id/txtVisitCustomer"
@@ -130,12 +131,13 @@
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="10dp"
                         android:layout_weight="1"
-                        android:background="@color/white_transparent_color"
+                        android:background="@android:color/white"
                         android:gravity="center"
-                        android:text="Visit Customers"
+                        android:text="Visit\nCustomers"
                         android:textAllCaps="true"
-                        android:textColor="@android:color/white"
-                        android:textStyle="bold" />
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold"
+                        android:textSize="18dp"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -153,12 +155,13 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="5dp"
                         android:layout_weight="1"
-                        android:background="@color/white_transparent_color"
+                        android:background="@android:color/white"
                         android:gravity="center"
-                        android:text="My attendance"
+                        android:text="My attendance\nHistory"
                         android:textAllCaps="true"
-                        android:textColor="@android:color/white"
-                        android:textStyle="bold" />
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold"
+                        android:textSize="18dp"/>
 
                     <android.support.v7.widget.AppCompatTextView
                         android:id="@+id/txtMyCustomers"
@@ -167,12 +170,13 @@
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="10dp"
                         android:layout_weight="1"
-                        android:background="@color/white_transparent_color"
+                        android:background="@android:color/white"
                         android:gravity="center"
-                        android:text="My Customers"
+                        android:text="My\nCustomers"
                         android:textAllCaps="true"
-                        android:textColor="@android:color/white"
-                        android:textStyle="bold" />
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold"
+                        android:textSize="18dp"/>
                 </LinearLayout>
             </RelativeLayout>
 

@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#ffffff</color>
     <color name="colorPrimaryDark">#ffffff</color>
-    <color name="colorAccent">#ff6326</color>
+    <color name="colorAccent">#757575</color>
     <color name="sq_background_blue">#e0e0e0</color>
     <color name="wow_gray">#757575</color>
     <color name="yellow_color">#F2E230</color>

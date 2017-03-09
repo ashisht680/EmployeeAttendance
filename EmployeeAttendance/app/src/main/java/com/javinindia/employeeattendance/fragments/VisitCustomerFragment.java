@@ -68,13 +68,9 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-
-import static android.Manifest.permission.CAMERA;
 
 /**
  * Created by Ashish on 16-02-2017.
@@ -198,7 +194,6 @@ public class VisitCustomerFragment extends BaseFragment implements View.OnClickL
 
         }
     }
-
 
     @Nullable
     @Override
@@ -342,7 +337,6 @@ public class VisitCustomerFragment extends BaseFragment implements View.OnClickL
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        //{"status":1,"msg":"success"}
                         int status=0;
                         String msg = null;
                         loading.dismiss();
@@ -440,7 +434,6 @@ public class VisitCustomerFragment extends BaseFragment implements View.OnClickL
                     InputStream imageStream = activity.getContentResolver().openInputStream(mImageCaptureUri);
                     photo = BitmapFactory.decodeStream(imageStream);
                     photo = getResizedBitmap(photo, 700);
-                   // photo = MediaStore.Images.Media.getBitmap(activity.getContentResolver(), mImageCaptureUri);
                     imgProfilePic.setImageBitmap(photo);
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -480,7 +473,6 @@ public class VisitCustomerFragment extends BaseFragment implements View.OnClickL
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED
                         && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
                     capture();
-                    //return;
                 } else {
                     Toast.makeText(activity, "You Denied for camera permission so you cant't update image", Toast.LENGTH_SHORT).show();
                 }

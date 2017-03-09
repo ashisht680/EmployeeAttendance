@@ -99,7 +99,7 @@ public class TrackerHomeFragment extends BaseFragment implements View.OnClickLis
                             saveDataOnPreference(TYPE, id, name, email, password, emp_id, profile_pic, device_token);
                         } else {
                             if (!TextUtils.isEmpty(msg)) {
-                                // showDialogMethod("Sorry, Invalid email/password");
+
                             }
                         }
                     }

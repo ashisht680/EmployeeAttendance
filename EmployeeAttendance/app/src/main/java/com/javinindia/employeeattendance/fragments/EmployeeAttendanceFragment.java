@@ -515,7 +515,7 @@ public class EmployeeAttendanceFragment extends BaseFragment implements View.OnC
                     InputStream imageStream = activity.getContentResolver().openInputStream(mImageCaptureUri);
                     Bitmap bmp = BitmapFactory.decodeStream(imageStream);
 
-                    bmp = getResizedBitmap(bmp, 400);
+                    bmp = getResizedBitmap(bmp, 700);
 
                     mapbit.add(bmp);
                     Log.e("map data", mapbit + "");

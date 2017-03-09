@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatEditText;
+import android.support.v7.widget.AppCompatImageButton;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
@@ -262,6 +263,14 @@ public class CustomerViewFragment extends BaseFragment {
         txtHdPC.setTypeface(FontAsapBoldSingleTonClass.getInstance(activity).getTypeFace());
         txtHdDescription = (AppCompatTextView) view.findViewById(R.id.txtHdDescription);
         txtHdDescription.setTypeface(FontAsapBoldSingleTonClass.getInstance(activity).getTypeFace());
+
+        AppCompatImageButton imgBtbRotate = (AppCompatImageButton)view.findViewById(R.id.imgBtbRotate);
+        imgBtbRotate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                imgProfile.setRotation(imgProfile.getRotation() + 90);
+            }
+        });
 
     }
 

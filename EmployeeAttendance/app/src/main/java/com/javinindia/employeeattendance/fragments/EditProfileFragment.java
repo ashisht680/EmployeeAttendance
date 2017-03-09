@@ -1,6 +1,7 @@
 package com.javinindia.employeeattendance.fragments;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.ComponentName;
@@ -59,9 +60,11 @@ import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -627,22 +630,33 @@ public class EditProfileFragment extends BaseFragment implements View.OnClickLis
             public void onClick(DialogInterface dialog, int item) { // pick from
                 // camera
                 if (item == 0) {
-
                     Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                    File f = new File(android.os.Environment.getExternalStorageDirectory(), "temp1.jpg");
-                    mImageCaptureUri = Uri.fromFile(f);
+                    mImageCaptureUri = Uri.fromFile(getOutputMediaFile());
                     intent.putExtra(MediaStore.EXTRA_OUTPUT, mImageCaptureUri);
                     startActivityForResult(intent, PICK_FROM_CAMERA);
 
                 } else {
                     // pick from file
-                    Intent i = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    Intent i = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                     startActivityForResult(i, PICK_FROM_FILE);
                 }
             }
         });
 
         dialog = builder.create();
+    }
+
+    private static File getOutputMediaFile() {
+        File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(
+                Environment.DIRECTORY_PICTURES), "CameraDemo");
+        if (!mediaStorageDir.exists()) {
+            if (!mediaStorageDir.mkdirs()) {
+                return null;
+            }
+        }
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        return new File(mediaStorageDir.getPath() + File.separator +
+                "IMG_" + timeStamp + ".jpg");
     }
 
     public class CropOptionAdapter extends ArrayAdapter<CropOption> {
@@ -685,39 +699,23 @@ public class EditProfileFragment extends BaseFragment implements View.OnClickLis
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode != activity.RESULT_OK)
-            return;
-
-        switch (requestCode) {
-            case PICK_FROM_CAMERA:
-
-                doCrop();
-
-                break;
-
-            case PICK_FROM_FILE:
-
-                // After selecting image from files, save the selected path
-                mImageCaptureUri = data.getData();
-                doCrop();
-                break;
-
-            case CROP_FROM_CAMERA:
-                try {
-                    if (outPutFile.exists()) {
-                        photo = decodeFile(outPutFile.getAbsolutePath());
-                        outPutFile.getPath();
-
-                        imgProfilePicNotFound.setImageBitmap(photo);
-                        imgProfilePic.setImageBitmap(photo);
-                    } else {
-                        Toast.makeText(activity, "Error while save image", Toast.LENGTH_SHORT).show();
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
+        if (requestCode == PICK_FROM_FILE && resultCode == Activity.RESULT_OK && null != data) {
+            mImageCaptureUri = data.getData();
+            doCrop();
+        } else if (requestCode == PICK_FROM_CAMERA && resultCode == Activity.RESULT_OK) {
+            doCrop();
+        } else if (requestCode == CROP_FROM_CAMERA) {
+            try {
+                if (outPutFile.exists()) {
+                    photo = decodeFile(outPutFile.getAbsolutePath());
+                    imgProfilePicNotFound.setImageBitmap(photo);
+                    imgProfilePic.setImageBitmap(photo);
+                } else {
+                    Toast.makeText(activity, "Error while save image", Toast.LENGTH_SHORT).show();
                 }
-                break;
-
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -754,7 +752,6 @@ public class EditProfileFragment extends BaseFragment implements View.OnClickLis
                     Toast.LENGTH_SHORT).show();
             return;
         } else {
-
             intent.setData(mImageCaptureUri);
             intent.putExtra("outputX", 512);
             intent.putExtra("outputY", 512);

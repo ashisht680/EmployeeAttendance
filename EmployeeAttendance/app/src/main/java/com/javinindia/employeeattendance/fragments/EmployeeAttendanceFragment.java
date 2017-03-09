@@ -65,8 +65,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.List;
@@ -82,7 +85,7 @@ public class EmployeeAttendanceFragment extends BaseFragment implements View.OnC
     private AppCompatButton btnCurrentLocation;
     private LinearLayout lnrImages;
     private ImageView imageView;
-    public ArrayList<String> map = new ArrayList<String>();
+   // public ArrayList<String> map = new ArrayList<String>();
     public ArrayList<Bitmap> mapbit = new ArrayList<Bitmap>();
     public static final int MY_PERMISSIONS_REQUEST_CAMERA = 0;
     HorizontalScrollView horizontalScrollView;
@@ -93,6 +96,9 @@ public class EmployeeAttendanceFragment extends BaseFragment implements View.OnC
     private RequestQueue requestQueue;
     private int count = 0;
     private int ash = 0;
+
+    private static final int PICK_FROM_CAMERA = 1;
+    private Uri mImageCaptureUri = null;
 
 
     @Override
@@ -117,7 +123,7 @@ public class EmployeeAttendanceFragment extends BaseFragment implements View.OnC
         activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         initToolbar(view);
         initialization(view);
-        if (map.size() == 0) {
+        if (mapbit.size() == 0) {
             horizontalScrollView.setVisibility(View.GONE);
         } else {
             horizontalScrollView.setVisibility(View.VISIBLE);
@@ -144,7 +150,7 @@ public class EmployeeAttendanceFragment extends BaseFragment implements View.OnC
     public void onResume() {
         Log.e("resume", "res");
         super.onResume();
-        if (map.size() == 0) {
+        if (mapbit.size() == 0) {
             horizontalScrollView.setVisibility(View.GONE);
         } else {
             horizontalScrollView.setVisibility(View.VISIBLE);
@@ -197,7 +203,8 @@ public class EmployeeAttendanceFragment extends BaseFragment implements View.OnC
                 if (ContextCompat.checkSelfPermission(activity, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
                     ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, MY_PERMISSIONS_REQUEST_CAMERA);
                 } else {
-                    methodAddImages();
+                  //  methodAddImages();
+                    capture();
                 }
                 break;
             case R.id.btnSubmit:
@@ -213,11 +220,39 @@ public class EmployeeAttendanceFragment extends BaseFragment implements View.OnC
         }
     }
 
+    public void capture(){
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            mImageCaptureUri = FileProvider.getUriForFile(activity,
+                    "com.javinindia.employeeattendance.provider",
+                    getOutputMediaFile());
+
+
+        } else {
+            mImageCaptureUri = Uri.fromFile(getOutputMediaFile());
+        }
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, mImageCaptureUri);
+        startActivityForResult(intent, PICK_FROM_CAMERA);
+    }
+
+    private static File getOutputMediaFile() {
+        File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(
+                Environment.DIRECTORY_PICTURES), "CameraDemo");
+        if (!mediaStorageDir.exists()) {
+            if (!mediaStorageDir.mkdirs()) {
+                return null;
+            }
+        }
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        return new File(mediaStorageDir.getPath() + File.separator +
+                "IMG_" + timeStamp + ".jpg");
+    }
+
     private void methodSubmitComment() {
-        if (map.size() > 5) {
+        if (mapbit.size() > 5) {
             Toast.makeText(activity, "You can capture upto 5 images only. Please de-select some.", Toast.LENGTH_SHORT).show();
         } else {
-            if (map.size() > 0) {
+            if (mapbit.size() > 0) {
                 if (btnCurrentLocation.getText().toString().equalsIgnoreCase("DONE")) {
                     String des = et_AttendanceDesc.getText().toString().trim();
                     if (TextUtils.isEmpty(des)) {
@@ -289,7 +324,7 @@ public class EmployeeAttendanceFragment extends BaseFragment implements View.OnC
             e.printStackTrace();
         }
         if (status == 1) {
-            uploadImage(atId, map.get(count));
+            uploadImage(atId, String.valueOf(mapbit.get(count)));
         } else {
             if (!TextUtils.isEmpty(msg)) {
                 showDialogMethod(msg);
@@ -307,13 +342,13 @@ public class EmployeeAttendanceFragment extends BaseFragment implements View.OnC
                         if (sResponse != null) {
                             Log.e("resimageashish", count + " " + sResponse);
                             count++;
-                            if (count < map.size()) {
-                                Log.e("imaggasdasvdsvh", count + "" + map.get(count) + "");
-                                uploadImage(atId, map.get(count));
+                            if (count < mapbit.size()) {
+                                Log.e("imaggasdasvdsvh", count + "" + mapbit.get(count) + "");
+                                uploadImage(atId, String.valueOf(mapbit.get(count)));
 
-                                ash(map.get(count));
+                                ash(String.valueOf(mapbit.get(count)));
                             }
-                            if (count == map.size()) {
+                            if (count == mapbit.size()) {
                                 Toast.makeText(activity, " Photo uploaded successfully", Toast.LENGTH_SHORT).show();
                                 activity.onBackPressed();
                             }
@@ -335,7 +370,7 @@ public class EmployeeAttendanceFragment extends BaseFragment implements View.OnC
                 //http://hnwkart.com/attendance/insert_employee_attendance_images.php?attend_id=4&pic=p.jpg
                 Bitmap bitmap;
                 bitmap = decodeFile(xyz);
-                Log.e("imgBit", map.get(count));
+                Log.e("imgBit", String.valueOf(mapbit.get(count)));
                 ByteArrayOutputStream bos = new ByteArrayOutputStream();
                 mapbit.get(count).compress(Bitmap.CompressFormat.JPEG, 100, bos);
                 byte[] data = bos.toByteArray();
@@ -467,46 +502,43 @@ public class EmployeeAttendanceFragment extends BaseFragment implements View.OnC
     @Override
     public void onActivityResult(int requestCode, int resultCode, final Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (map.size() == 0) {
+        if (mapbit.size() == 0) {
             horizontalScrollView.setVisibility(View.GONE);
         } else {
             horizontalScrollView.setVisibility(View.VISIBLE);
         }
         if (resultCode == activity.RESULT_OK) {
-            if (requestCode == 1) {
-                File f = new File(Environment.getExternalStorageDirectory().toString());
-                for (File temp : f.listFiles()) {
-                    if (temp.getName().equals("temp.jpg")) {
-                        f = temp;
-                        break;
-                    }
-                }
+            if (requestCode == PICK_FROM_CAMERA) {
+
                 try {
-                    Bitmap bitmap;
-                    //BitmapFactory.Options bitmapOptions = new BitmapFactory.Options();
-                    bitmap = decodeFile(f.getAbsolutePath());
-                    mapbit.add(bitmap);
-                    Log.e("map data", map + "");
+
+                    InputStream imageStream = activity.getContentResolver().openInputStream(mImageCaptureUri);
+                    Bitmap bmp = BitmapFactory.decodeStream(imageStream);
+
+                    bmp = getResizedBitmap(bmp, 400);
+
+                    mapbit.add(bmp);
+                    Log.e("map data", mapbit + "");
                     try {
                         //lnrImages.removeAllViews();
                     } catch (Throwable e) {
                         e.printStackTrace();
                     }
                     imageView = new ImageView(activity);
-                    imageView.setImageBitmap(bitmap);
+                    imageView.setImageBitmap(bmp);
                     imageView.setPadding(8, 8, 8, 8);
                     imageView.setScaleType(ImageView.ScaleType.FIT_XY);
                     imageView.setAdjustViewBounds(true);
                     imageView.setId(ash);
                     lnrImages.addView(imageView);
-                    final File finalF = f;
-                    map.add(ash, finalF.getAbsolutePath());
+                   // final File finalF = f;
+                  //  map.add(ash, finalF.getAbsolutePath());
                     ash++;
                     imageView.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             methodToShowDialogForDelete(v);
-                            map.remove(finalF.getAbsolutePath());
+                         //   map.remove(finalF.getAbsolutePath());
                             int position = 0;
                             position = v.getId();
                             mapbit.remove(position);
@@ -525,7 +557,7 @@ public class EmployeeAttendanceFragment extends BaseFragment implements View.OnC
                     //  map.add(capture);
                     try {
                         outFile = new FileOutputStream(file);
-                        bitmap.compress(Bitmap.CompressFormat.JPEG, 85, outFile);
+                        bmp.compress(Bitmap.CompressFormat.JPEG, 50, outFile);
                         outFile.flush();
                         outFile.close();
                     } catch (FileNotFoundException e) {
@@ -540,6 +572,22 @@ public class EmployeeAttendanceFragment extends BaseFragment implements View.OnC
                 }
             }
         }
+    }
+
+
+    public Bitmap getResizedBitmap(Bitmap image, int maxSize) {
+        int width = image.getWidth();
+        int height = image.getHeight();
+
+        float bitmapRatio = (float)width / (float) height;
+        if (bitmapRatio > 1) {
+            width = maxSize;
+            height = (int) (width / bitmapRatio);
+        } else {
+            height = maxSize;
+            width = (int) (height * bitmapRatio);
+        }
+        return Bitmap.createScaledBitmap(image, width, height, true);
     }
 
     public Bitmap decodeFile(String filePath) {
@@ -571,7 +619,7 @@ public class EmployeeAttendanceFragment extends BaseFragment implements View.OnC
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 lnrImages.removeView(v);
-                if (map.size() == 0) {
+                if (mapbit.size() == 0) {
                     horizontalScrollView.setVisibility(View.GONE);
                 }
             }

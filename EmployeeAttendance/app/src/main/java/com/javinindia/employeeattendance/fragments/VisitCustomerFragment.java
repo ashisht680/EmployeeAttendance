@@ -28,6 +28,7 @@ import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
@@ -65,6 +66,7 @@ import org.json.XML;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -87,7 +89,6 @@ public class VisitCustomerFragment extends BaseFragment implements View.OnClickL
     private Uri mImageCaptureUri = null;
 
     private static final int PICK_FROM_CAMERA = 1;
-    private static final int CROP_FROM_CAMERA = 2;
     Bitmap photo = null;
     private File outPutFile = null;
     AppCompatEditText etDescription;
@@ -118,7 +119,6 @@ public class VisitCustomerFragment extends BaseFragment implements View.OnClickL
             result = SharedPreferencesManager.getAadhar(activity);
             try {
                 jsonObj = XML.toJSONObject(result);
-                Log.e("aadhar",jsonObj.toString());
                 if (jsonObj.length() > 0) {
                     llAadharDetail.setVisibility(View.VISIBLE);
                     AadharResponse aadharResponse = new AadharResponse();
@@ -213,7 +213,8 @@ public class VisitCustomerFragment extends BaseFragment implements View.OnClickL
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
+        activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+        outPutFile = new File(android.os.Environment.getExternalStorageDirectory(), "temp.jpg");
     }
 
     private void initialization(View view) {
@@ -293,11 +294,7 @@ public class VisitCustomerFragment extends BaseFragment implements View.OnClickL
                 if (ContextCompat.checkSelfPermission(activity, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
                     ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, MY_PERMISSIONS_REQUEST_CAMERA);
                 } else {
-                    try {
-                        img();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                    capture();
                 }
                 break;
             case R.id.btnSubmitVisit:
@@ -310,6 +307,21 @@ public class VisitCustomerFragment extends BaseFragment implements View.OnClickL
                 }
                 break;
         }
+    }
+
+    public void capture(){
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            mImageCaptureUri = FileProvider.getUriForFile(activity,
+                    "com.javinindia.employeeattendance.provider",
+                    getOutputMediaFile());
+
+
+        } else {
+            mImageCaptureUri = Uri.fromFile(getOutputMediaFile());
+        }
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, mImageCaptureUri);
+        startActivityForResult(intent, PICK_FROM_CAMERA);
     }
 
     private void methodUpdateView() {
@@ -400,136 +412,13 @@ public class VisitCustomerFragment extends BaseFragment implements View.OnClickL
         requestQueue.add(stringRequest);
     }
 
-    private void img() throws IOException {
-
-        int currentapiVersion = Build.VERSION.SDK_INT;
-        if (currentapiVersion >= Build.VERSION_CODES.M) {
-            if (checkPermission()) {
-                cameraIntent();
-            } else {
-                requestPermission();
-            }
-        } else {
-            cameraIntent();
-        }
-
-    }
-
-
-    private boolean checkPermission() {
-        return (ContextCompat.checkSelfPermission(activity, CAMERA) == PackageManager.PERMISSION_GRANTED);
-    }
-
-    private void requestPermission() {
-        ActivityCompat.requestPermissions(activity, new String[]{CAMERA}, 1);
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch (requestCode) {
-            case MY_PERMISSIONS_REQUEST_CAMERA: {
-
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED
-                        && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
-                    try {
-                        img();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                } else {
-                    Toast.makeText(activity, "You Denied for camera permission so you cant't update image", Toast.LENGTH_SHORT).show();
-                }
-            }
-        }
-    }
-
     @Override
     public void OnCallBackInternet() {
 
     }
 
 
-    public class CropOptionAdapter extends ArrayAdapter<CropOption> {
-        private ArrayList<CropOption> mOptions;
-        private LayoutInflater mInflater;
-
-        public CropOptionAdapter(Context context, ArrayList<CropOption> options) {
-            super(context, R.layout.crop_selector, options);
-
-            mOptions = options;
-
-            mInflater = LayoutInflater.from(context);
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup group) {
-            if (convertView == null)
-                convertView = mInflater.inflate(R.layout.crop_selector, null);
-
-            CropOption item = mOptions.get(position);
-
-            if (item != null) {
-                ((ImageView) convertView.findViewById(R.id.iv_icon))
-                        .setImageDrawable(item.icon);
-                ((TextView) convertView.findViewById(R.id.tv_name))
-                        .setText(item.title);
-
-                return convertView;
-            }
-
-            return null;
-        }
-    }
-
-    public class CropOption {
-        public CharSequence title;
-        public Drawable icon;
-        public Intent appIntent;
-    }
-
-    public Bitmap decodeFile(String filePath) {
-        BitmapFactory.Options o = new BitmapFactory.Options();
-        o.inJustDecodeBounds = true;
-        BitmapFactory.decodeFile(filePath, o);
-        final int REQUIRED_SIZE = 1024;
-        int width_tmp = o.outWidth, height_tmp = o.outHeight;
-        int scale = 1;
-        while (true) {
-            if (width_tmp < REQUIRED_SIZE && height_tmp < REQUIRED_SIZE)
-                break;
-            width_tmp /= 2;
-            height_tmp /= 2;
-            scale *= 2;
-        }
-        BitmapFactory.Options o2 = new BitmapFactory.Options();
-        o2.inSampleSize = scale;
-        Bitmap bitmap = BitmapFactory.decodeFile(filePath, o2);
-        return bitmap;
-    }
-
-    private void cameraIntent() throws IOException {
-
-
-        int currentapiVersion = Build.VERSION.SDK_INT;
-        if (currentapiVersion > Build.VERSION_CODES.M) {
-            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            File f = new File(Environment.getExternalStorageDirectory(), "temp.jpg");
-            mImageCaptureUri = FileProvider.getUriForFile(activity,
-                    BuildConfig.APPLICATION_ID + ".provider",
-                    f);
-            intent.putExtra(MediaStore.EXTRA_OUTPUT, mImageCaptureUri);
-            startActivityForResult(intent, PICK_FROM_CAMERA);
-        } else {
-            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            mImageCaptureUri = Uri.fromFile(getOutputMediaFile());
-            intent.putExtra(MediaStore.EXTRA_OUTPUT, mImageCaptureUri);
-            startActivityForResult(intent, PICK_FROM_CAMERA);
-        }
-
-    }
-
     private static File getOutputMediaFile() {
-
         File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(
                 Environment.DIRECTORY_PICTURES), "CameraDemo");
         if (!mediaStorageDir.exists()) {
@@ -544,97 +433,57 @@ public class VisitCustomerFragment extends BaseFragment implements View.OnClickL
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        /*if (requestCode == PICK_FROM_FILE && resultCode == Activity.RESULT_OK && null != data) {
-            mImageCaptureUri = data.getData();
-            doCrop();
-        } else*/
         if (requestCode == PICK_FROM_CAMERA && resultCode == Activity.RESULT_OK) {
-            doCrop();
-        } else if (requestCode == CROP_FROM_CAMERA) {
-            try {
-                if (outPutFile.exists()) {
-                    photo = decodeFile(outPutFile.getAbsolutePath());
+            if (outPutFile.exists()) {
+                try {
+
+                    InputStream imageStream = activity.getContentResolver().openInputStream(mImageCaptureUri);
+                    photo = BitmapFactory.decodeStream(imageStream);
+                    photo = getResizedBitmap(photo, 700);
+                   // photo = MediaStore.Images.Media.getBitmap(activity.getContentResolver(), mImageCaptureUri);
                     imgProfilePic.setImageBitmap(photo);
-                    // profilePicUrlSetMethod();
-                } else {
-                    Toast.makeText(activity, "Error while save image", Toast.LENGTH_SHORT).show();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
+
+            } else {
+                Toast.makeText(activity, "Error while save image", Toast.LENGTH_SHORT).show();
             }
+        } else {
+
         }
     }
 
-    private void doCrop() {
-        final ArrayList<CropOption> cropOptions = new ArrayList<CropOption>();
-        Intent intent = new Intent("com.android.camera.action.CROP");
-        intent.setType("image/*");
-        List<ResolveInfo> list = activity.getPackageManager().queryIntentActivities(
-                intent, 0);
+    public Bitmap getResizedBitmap(Bitmap image, int maxSize) {
+        int width = image.getWidth();
+        int height = image.getHeight();
 
-        int size = list.size();
-        if (size == 0) {
-            Toast.makeText(activity, "Can not find image crop app",
-                    Toast.LENGTH_SHORT).show();
-            return;
+        float bitmapRatio = (float)width / (float) height;
+        if (bitmapRatio > 1) {
+            width = maxSize;
+            height = (int) (width / bitmapRatio);
         } else {
-            intent.setData(mImageCaptureUri);
-            intent.putExtra("outputX", 512);
-            intent.putExtra("outputY", 512);
-            intent.putExtra("aspectX", 1);
-            intent.putExtra("aspectY", 1);
-            intent.putExtra("scale", true);
-            intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(outPutFile.getAbsoluteFile()));
+            height = maxSize;
+            width = (int) (height * bitmapRatio);
+        }
+        return Bitmap.createScaledBitmap(image, width, height, true);
+    }
 
-            if (size == 1) {
-                Intent i = new Intent(intent);
-                ResolveInfo res = list.get(0);
-                i.setComponent(new ComponentName(res.activityInfo.packageName,
-                        res.activityInfo.name));
-                startActivityForResult(i, CROP_FROM_CAMERA);
-            } else {
-                for (ResolveInfo res : list) {
-                    final CropOption co = new CropOption();
-                    co.title = activity.getPackageManager().getApplicationLabel(
-                            res.activityInfo.applicationInfo);
-                    co.icon = activity.getPackageManager().getApplicationIcon(
-                            res.activityInfo.applicationInfo);
-                    co.appIntent = new Intent(intent);
-                    co.appIntent
-                            .setComponent(new ComponentName(
-                                    res.activityInfo.packageName,
-                                    res.activityInfo.name));
-                    cropOptions.add(co);
+
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode) {
+            case MY_PERMISSIONS_REQUEST_CAMERA: {
+
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED
+                        && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+                    capture();
+                    //return;
+                } else {
+                    Toast.makeText(activity, "You Denied for camera permission so you cant't update image", Toast.LENGTH_SHORT).show();
                 }
-
-                CropOptionAdapter adapter = new CropOptionAdapter(
-                        activity.getApplicationContext(), cropOptions);
-                AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-                builder.setTitle("Choose Crop App");
-                builder.setCancelable(false);
-                builder.setAdapter(adapter,
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int item) {
-                                startActivityForResult(
-                                        cropOptions.get(item).appIntent,
-                                        CROP_FROM_CAMERA);
-                            }
-                        });
-
-                builder.setOnCancelListener(new DialogInterface.OnCancelListener() {
-                    @Override
-                    public void onCancel(DialogInterface dialog) {
-
-                        if (mImageCaptureUri != null) {
-                            activity.getContentResolver().delete(mImageCaptureUri, null,
-                                    null);
-                            mImageCaptureUri = null;
-                        }
-                    }
-                });
-
-                AlertDialog alert = builder.create();
-                alert.show();
             }
         }
     }

@@ -6,6 +6,7 @@ import android.support.v4.app.DialogFragment;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.AppCompatButton;
+import android.support.v7.widget.AppCompatImageButton;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,9 +48,6 @@ public class PostImagesFragment extends DialogFragment {
 
         images = (ArrayList<attend_details_images>) getArguments().getSerializable("images");
         selectedPosition = getArguments().getInt("position");
-
-        Log.e(TAG, "position: " + selectedPosition);
-        Log.e(TAG, "images size: " + images.size());
 
         myViewPagerAdapter = new MyViewPagerAdapter();
         viewPager.setAdapter(myViewPagerAdapter);
@@ -115,7 +113,7 @@ public class PostImagesFragment extends DialogFragment {
            final ImageView imageViewPreview = (ImageView) view.findViewById(R.id.image_preview);
 
             final ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.progress);
-            final AppCompatButton btnRotate = (AppCompatButton)view.findViewById(R.id.btnRotate);
+            final AppCompatImageButton btnRotate = (AppCompatImageButton)view.findViewById(R.id.btnRotate);
             btnRotate.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
